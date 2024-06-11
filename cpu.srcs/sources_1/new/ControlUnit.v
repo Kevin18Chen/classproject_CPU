@@ -51,6 +51,16 @@ always @(opcode)    begin
                 regWrite = 1;memWrite = 0;memRead = 0;
                 aluOp = 4'b0010;branch = 0;
             end
+            6'b000011: begin // sll cmd:000001_address1-data_address2 -data_write-address_X
+                aluSrc = 0;memToReg = 0;regDst = 1;
+                regWrite = 1;memWrite = 0;memRead = 0;
+                aluOp = 4'b0011;branch = 0;
+            end
+            6'b000100: begin // slr cmd:000001_address1-data_address2 -data_write-address_X
+                aluSrc = 0;memToReg = 0;regDst = 1;
+                regWrite = 1;memWrite = 0;memRead = 0;
+                aluOp = 4'b0100;branch = 0;
+            end
             6'b000100: begin // BGE cmd:000100_address1-data_address2-data_jump-address[15:0]
                 regDst = 0;aluSrc = 0;memToReg = 0;
                 regWrite = 0;memWrite = 0;memRead = 0;

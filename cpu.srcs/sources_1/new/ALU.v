@@ -32,6 +32,8 @@ module ALU(
             4'b0000: result = in_1;
             4'b0001: result = in_2;             //data write or read
             4'b0010: result = in_1 + in_2;      // Addition
+            4'b0011: result = in_1 << in_2;     //shift left
+            4'b0100: result = in_1 >> in_2;     //shift right
             4'b0110: result = in_1 - in_2;      // Subtraction
             4'b1100: result = !(in_1 > in_2);
             4'b1101: result = !(in_1 == in_2);
