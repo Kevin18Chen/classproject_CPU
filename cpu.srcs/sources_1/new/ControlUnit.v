@@ -46,17 +46,17 @@ always @(opcode)    begin
                 regWrite = 1;memWrite = 0;memRead = 0;
                 aluOp = 4'b0110;branch = 0;
             end
-            6'b000010: begin // addi cmd:000000_address-data_write-address_number[15:0]
+            6'b000010: begin // addi cmd:000010_address-data_write-address_number[15:0]
                 aluSrc = 1;memToReg = 0;regDst = 0;
                 regWrite = 1;memWrite = 0;memRead = 0;
                 aluOp = 4'b0010;branch = 0;
             end
-            6'b000011: begin // sll cmd:000001_address1-data_address2 -data_write-address_X
+            6'b000011: begin // sll cmd:000011_address1-data_address2 -data_write-address_X
                 aluSrc = 0;memToReg = 0;regDst = 1;
                 regWrite = 1;memWrite = 0;memRead = 0;
                 aluOp = 4'b0011;branch = 0;
             end
-            6'b000100: begin // slr cmd:000001_address1-data_address2 -data_write-address_X
+            6'b001011: begin // slr cmd:001011_address1-data_address2 -data_write-address_X
                 aluSrc = 0;memToReg = 0;regDst = 1;
                 regWrite = 1;memWrite = 0;memRead = 0;
                 aluOp = 4'b0100;branch = 0;
